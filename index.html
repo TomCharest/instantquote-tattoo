@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>InstantQuote Tattoo — Estimation de tattoo</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f8fa;
+    color: #111827;
+    line-height: 1.5;
+}
+
+.container {
+    width: min(1100px, 92%);
+    margin: auto;
+}
+
+/* NAVBAR */
+
+nav {
+    padding: 22px 0;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #2563eb;
+}
+
+.nav-btn {
+    text-decoration: none;
+    background: #111827;
+    color: white;
+    padding: 10px 17px;
+    border-radius: 9px;
+    font-weight: 700;
+}
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    padding: 85px 20px 70px;
+}
+
+.badge {
+    display: inline-block;
+    background: #e8efff;
+    color: #2451c3;
+    padding: 7px 13px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    max-width: 850px;
+    margin: auto;
+    font-size: clamp(40px, 7vw, 70px);
+    line-height: 1.03;
+    letter-spacing: -2.5px;
+}
+
+.hero h1 span {
+    color: #2563eb;
+}
+
+.hero p {
+    max-width: 680px;
+    margin: 22px auto;
+    color: #667085;
+    font-size: 20px;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    background: #111827;
+    color: white;
+    padding: 15px 23px;
+    border-radius: 11px;
+    font-size: 16px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.btn:hover {
+    opacity: .9;
+}
+
+/* ESTIMATEUR */
+
+.demo-section {
+    padding: 20px 0 70px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+.section-title p {
+    color: #667085;
+}
+
+.demo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #e2e6eb;
+    border-radius: 18px;
+    padding: 27px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.04);
+}
+
+.card h3 {
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.muted {
+    color: #667085;
+}
+
+/* FORM ELEMENTS */
+
+.field {
+    margin-top: 23px;
+}
+
+.field label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 9px;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.option {
+    border: 1px solid #d7dce3;
+    background: white;
+    padding: 10px 13px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.option:hover {
+    border-color: #2563eb;
+}
+
+.option.active {
+    background: #111827;
+    color: white;
+    border-color: #111827;
+}
+
+/* PRICE */
+
+.price-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.price {
+    font-size: 48px;
+    font-weight: 900;
+    margin: 12px 0;
+}
+
+.price-details {
+    color: #667085;
+}
+
+.price-note {
+    margin-top: 12px;
+    padding: 12px;
+    background: #f3f4f6;
+    border-radius: 9px;
+    font-size: 13px;
+    color: #667085;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+    margin: 25px 0;
+}
+
+/* TEXTAREA */
+
+textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 14px;
+    border-radius: 9px;
+    border: 1px solid #d1d5db;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    resize: vertical;
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+/* FEATURES */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+    padding-bottom: 75px;
+}
+
+.feature {
+    background: white;
+    border: 1px solid #e2e6eb;
+    border-radius: 15px;
+    padding: 22px;
+}
+
+.feature-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.feature h3 {
+    margin-bottom: 7px;
+}
+
+/* HOW */
+
+.how {
+    padding: 65px 0;
+    background: white;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.step {
+    text-align: center;
+}
+
+.number {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #111827;
+    color: white;
+    border-radius: 50%;
+    font-weight: 900;
+    margin: auto auto 15px;
+}
+
+/* CTA */
+
+.cta-section {
+    padding: 75px 0;
+}
+
+.cta {
+    margin: auto;
+    background: #111827;
+    color: white;
+    border-radius: 22px;
+    padding: 50px 25px;
+    text-align: center;
+    max-width: 850px;
+}
+
+.cta h2 {
+    font-size: 37px;
+}
+
+.cta p {
+    color: #d1d5db;
+    margin: 12px auto 25px;
+    max-width: 600px;
+}
+
+/* FORM */
+
+.form {
+    max-width: 500px;
+    margin: auto;
+    text-align: left;
+}
+
+.form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.form input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 9px;
+    border: 1px solid #d1d5db;
+    font-size: 16px;
+}
+
+.form .btn {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.success {
+    display: none;
+    margin-top: 15px;
+    padding: 13px;
+    border-radius: 9px;
+    background: #ecfdf3;
+    color: #166534;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #667085;
+    font-size: 14px;
+}
+
+/* MOBILE */
+
+@media(max-width: 750px) {
+
+    .hero {
+        padding-top: 55px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1.5px;
+    }
+
+    .demo-grid,
+    .features,
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-btn {
+        display: none;
+    }
+
+    .price {
+        font-size: 40px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="container nav">
+
+<div class="logo">
+Instant<span>Quote</span>
+</div>
+
+<a href="#soumission" class="nav-btn">
+Demander une soumission
+</a>
+
+</div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="container">
+
+<div class="badge">
+ESTIMATION DE TATTOO
+</div>
+
+<h1>
+Découvrez le prix estimé de votre
+<span>prochain tattoo.</span>
+</h1>
+
+<p>
+Répondez à quelques questions sur votre projet
+et obtenez une estimation instantanée avant de
+contacter votre artiste.
+</p>
+
+<a href="#estimateur" class="btn">
+Estimer mon tattoo
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ESTIMATEUR -->
+
+<section class="demo-section" id="estimateur">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Votre projet
+</h2>
+
+<p>
+Plus vous donnez de détails, plus l'estimation sera précise.
+</p>
+
+</div>
+
+
+<div class="demo-grid">
+
+
+<!-- QUESTIONS -->
+
+<div class="card">
+
+<h3>
+Parlez-nous de votre tattoo
+</h3>
+
+<p class="muted">
+Configurez votre projet ci-dessous.
+</p>
+
+
+<!-- STYLE -->
+
+<div class="field">
+
+<label>
+Style de tattoo
+</label>
+
+<div class="options" id="styles">
+
+<button class="option active" data-value="minimal">
+Minimaliste / Fine line
+</button>
+
+<button class="option" data-value="realistic">
+Réaliste
+</button>
+
+<button class="option" data-value="blackwork">
+Blackwork
+</button>
+
+<button class="option" data-value="traditional">
+Traditional
+</button>
+
+<button class="option" data-value="newschool">
+New school
+</button>
+
+<button class="option" data-value="other">
+Autre
+</button>
+
+</div>
+
+</div>
+
+
+<!-- EMPLACEMENT -->
+
+<div class="field">
+
+<label>
+Emplacement
+</label>
+
+<div class="options" id="locations">
+
+<button class="option active" data-value="arm">
+Bras / Avant-bras
+</button>
+
+<button class="option" data-value="wrist">
+Poignet
+</button>
+
+<button class="option" data-value="hand">
+Main / Doigts
+</button>
+
+<button class="option" data-value="shoulder">
+Épaule
+</button>
+
+<button class="option" data-value="back">
+Dos
+</button>
+
+<button class="option" data-value="chest">
+Poitrine
+</button>
+
+<button class="option" data-value="thigh">
+Cuisse
+</button>
+
+<button class="option" data-value="calf">
+Mollet
+</button>
+
+<button class="option" data-value="ankle">
+Cheville
+</button>
+
+<button class="option" data-value="other">
+Autre
+</button>
+
+</div>
+
+</div>
+
+
+<!-- TAILLE -->
+
+<div class="field">
+
+<label>
+Taille approximative
+</label>
+
+<div class="options" id="sizes">
+
+<button class="option active" data-value="small">
+2–5 cm
+</button>
+
+<button class="option" data-value="medium">
+5–10 cm
+</button>
+
+<button class="option" data-value="large">
+10–15 cm
+</button>
+
+<button class="option" data-value="xlarge">
+15–20 cm
+</button>
+
+<button class="option" data-value="huge">
+20 cm+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- COULEUR -->
+
+<div class="field">
+
+<label>
+Couleur
+</label>
+
+<div class="options" id="colors">
+
+<button class="option active" data-value="black">
+Noir & gris
+</button>
+
+<button class="option" data-value="color">
+Couleur
+</button>
+
+</div>
+
+</div>
+
+
+<!-- DETAIL -->
+
+<div class="field">
+
+<label>
+Niveau de détail
+</label>
+
+<div class="options" id="details">
+
+<button class="option active" data-value="simple">
+Simple
+</button>
+
+<button class="option" data-value="medium">
+Moyen
+</button>
+
+<button class="option" data-value="complex">
+Très détaillé
+</button>
+
+</div>
+
+</div>
+
+
+<!-- COVER UP -->
+
+<div class="field">
+
+<label>
+Type de projet
+</label>
+
+<div class="options" id="projectType">
+
+<button class="option active" data-value="new">
+Nouveau tattoo
+</button>
+
+<button class="option" data-value="cover">
+Cover-up
+</button>
+
+<button class="option" data-value="touchup">
+Retouche
+</button>
+
+</div>
+
+</div>
+
+
+<!-- DESIGN -->
+
+<div class="field">
+
+<label>
+Où en êtes-vous avec votre design?
+</label>
+
+<div class="options" id="designStatus">
+
+<button class="option active" data-value="ready">
+J'ai déjà mon design
+</button>
+
+<button class="option" data-value="idea">
+J'ai seulement une idée
+</button>
+
+<button class="option" data-value="artist">
+J'aimerais que l'artiste le crée
+</button>
+
+</div>
+
+</div>
+
+
+<!-- COMMENTAIRE -->
+
+<div class="field">
+
+<label>
+Décrivez votre projet
+</label>
+
+<textarea
+id="projectComment"
+placeholder="Ex. Je voudrais un petit lion réaliste sur mon avant-bras avec quelques détails en noir et gris..."
+></textarea>
+
+</div>
+
+</div>
+
+
+<!-- PRIX -->
+
+<div class="card price-card">
+
+<h3>
+Votre estimation
+</h3>
+
+<p class="muted">
+Estimation basée sur vos réponses
+</p>
+
+<div class="price" id="price">
+180 $ – 250 $
+</div>
+
+<p class="price-details" id="priceDetails">
+Tattoo minimaliste · Bras / Avant-bras · 2–5 cm
+</p>
+
+<div class="price-note">
+
+<strong>À noter :</strong><br>
+
+Cette estimation est indicative. Le prix final peut varier selon
+le design, le temps nécessaire, l'artiste et les détails du projet.
+
+</div>
+
+<hr>
+
+<p>
+Vous aimez l'estimation?
+</p>
+
+<br>
+
+<a href="#soumission" class="btn">
+Demander une soumission
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section class="container">
+
+<div class="features">
+
+
+<div class="feature">
+
+<div class="feature-icon">
+⚡
+</div>
+
+<h3>
+Estimation instantanée
+</h3>
+
+<p class="muted">
+Votre client obtient rapidement une première idée du prix de son projet.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🎨
+</div>
+
+<h3>
+Projet personnalisé
+</h3>
+
+<p class="muted">
+Le formulaire recueille les informations importantes avant le premier contact.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+📩
+</div>
+
+<h3>
+Demandes qualifiées
+</h3>
+
+<p class="muted">
+Recevez les détails du projet avec la demande de soumission.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section class="how">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Comment ça fonctionne
+</h2>
+
+<p>
+Une façon simple de commencer votre projet.
+</p>
+
+</div>
+
+
+<div class="steps">
+
+
+<div class="step">
+
+<div class="number">
+1
+</div>
+
+<h3>
+Décrivez votre projet
+</h3>
+
+<p class="muted">
+Répondez à quelques questions sur votre tattoo.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">
+2
+</div>
+
+<h3>
+Découvrez une estimation
+</h3>
+
+<p class="muted">
+Une fourchette de prix est calculée selon vos réponses.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">
+3
+</div>
+
+<h3>
+Envoyez votre demande
+</h3>
+
+<p class="muted">
+L'artiste reçoit les informations nécessaires pour vous répondre.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SOUMISSION -->
+
+<section class="cta-section" id="soumission">
+
+<div class="container">
+
+<div class="cta">
+
+<h2>
+Prêt à parler de votre tattoo?
+</h2>
+
+<p>
+Envoyez votre projet à l'artiste. Vous pourrez lui donner
+plus de détails afin d'obtenir une confirmation du prix final.
+</p>
+
+
+<form
+class="form"
+action="https://formspree.io/f/mwlkwabr"
+method="POST"
+>
+
+
+<label>
+Nom
+</label>
+
+<input
+type="text"
+name="name"
+placeholder="Votre nom"
+required
+>
+
+
+<label>
+Courriel
+</label>
+
+<input
+type="email"
+name="email"
+placeholder="vous@email.com"
+required
+>
+
+
+<label>
+Téléphone
+</label>
+
+<input
+type="tel"
+name="phone"
+placeholder="819-123-4567"
+>
+
+
+<label>
+Description du projet
+</label>
+
+<textarea
+name="project"
+id="formProject"
+placeholder="Décrivez votre idée..."
+required
+></textarea>
+
+
+<input
+type="hidden"
+name="estimated_price"
+id="estimatedPrice"
+>
+
+
+<input
+type="hidden"
+name="tattoo_style"
+id="formStyle"
+>
+
+
+<input
+type="hidden"
+name="tattoo_location"
+id="formLocation"
+>
+
+
+<input
+type="hidden"
+name="tattoo_size"
+id="formSize"
+>
+
+
+<button
+class="btn"
+type="submit"
+>
+Envoyer ma demande
+</button>
+
+
+<div class="success" id="success">
+
+Merci! Votre demande a été envoyée.
+
+</div>
+
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+InstantQuote — Estimateur de tattoo
+
+</footer>
+
+
+<script>
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+let selections = {
+
+    style: "minimal",
+
+    location: "arm",
+
+    size: "small",
+
+    color: "black",
+
+    detail: "simple",
+
+    projectType: "new",
+
+    designStatus: "ready"
+
+};
+
+
+/* =========================
+   NOMS AFFICHÉS
+========================= */
+
+const styleNames = {
+
+    minimal: "Minimaliste / Fine line",
+
+    realistic: "Réaliste",
+
+    blackwork: "Blackwork",
+
+    traditional: "Traditional",
+
+    newschool: "New school",
+
+    other: "Autre"
+
+};
+
+
+const locationNames = {
+
+    arm: "Bras / Avant-bras",
+
+    wrist: "Poignet",
+
+    hand: "Main / Doigts",
+
+    shoulder: "Épaule",
+
+    back: "Dos",
+
+    chest: "Poitrine",
+
+    thigh: "Cuisse",
+
+    calf: "Mollet",
+
+    ankle: "Cheville",
+
+    other: "Autre"
+
+};
+
+
+const sizeNames = {
+
+    small: "2–5 cm",
+
+    medium: "5–10 cm",
+
+    large: "10–15 cm",
+
+    xlarge: "15–20 cm",
+
+    huge: "20 cm+"
+
+};
+
+
+const colorNames = {
+
+    black: "Noir & gris",
+
+    color: "Couleur"
+
+};
+
+
+const detailNames = {
+
+    simple: "Simple",
+
+    medium: "Moyen",
+
+    complex: "Très détaillé"
+
+};
+
+
+/* =========================
+   CALCUL DU PRIX
+========================= */
+
+function calculatePrice() {
+
+
+    let minimum = 150;
+
+    let maximum = 200;
+
+
+    /* STYLE */
+
+    if (selections.style === "realistic") {
+
+        minimum += 70;
+        maximum += 100;
+
+    }
+
+    if (selections.style === "blackwork") {
+
+        minimum += 30;
+        maximum += 50;
+
+    }
+
+    if (selections.style === "traditional") {
+
+        minimum += 20;
+        maximum += 40;
+
+    }
+
+    if (selections.style === "newschool") {
+
+        minimum += 40;
+        maximum += 70;
+
+    }
+
+
+    /* TAILLE */
+
+    if (selections.size === "medium") {
+
+        minimum += 50;
+        maximum += 70;
+
+    }
+
+    if (selections.size === "large") {
+
+        minimum += 120;
+        maximum += 170;
+
+    }
+
+    if (selections.size === "xlarge") {
+
+        minimum += 220;
+        maximum += 320;
+
+    }
+
+    if (selections.size === "huge") {
+
+        minimum += 400;
+        maximum += 600;
+
+    }
+
+
+    /* COULEUR */
+
+    if (selections.color === "color") {
+
+        minimum += 30;
+        maximum += 50;
+
+    }
+
+
+    /* DETAIL */
+
+    if (selections.detail === "medium") {
+
+        minimum += 50;
+        maximum += 70;
+
+    }
+
+    if (selections.detail === "complex") {
+
+        minimum += 120;
+        maximum += 180;
+
+    }
+
+
+    /* COVER UP */
+
+    if (selections.projectType === "cover") {
+
+        minimum += 100;
+        maximum += 180;
+
+    }
+
+
+    /* RETOUCHE */
+
+    if (selections.projectType === "touchup") {
+
+        minimum -= 50;
+        maximum -= 30;
+
+    }
+
+
+    /* DESIGN PAR ARTISTE */
+
+    if (selections.designStatus === "artist") {
+
+        minimum += 50;
+        maximum += 100;
+
+    }
+
+
+    /* EMP LACEMENT */
+
+    if (
+        selections.location === "hand" ||
+        selections.location === "wrist" ||
+        selections.location === "ankle"
+    ) {
+
+        minimum += 20;
+        maximum += 40;
+
+    }
+
+
+    /* PRIX */
+
+    document.getElementById("price").textContent =
+        minimum + " $ – " + maximum + " $";
+
+
+    document.getElementById("priceDetails").textContent =
+
+        styleNames[selections.style]
+        + " · "
+        + locationNames[selections.location]
+        + " · "
+        + sizeNames[selections.size]
+        + " · "
+        + colorNames[selections.color];
+
+
+    /* FORMULAIRE */
+
+    document.getElementById("estimatedPrice").value =
+        minimum + " $ – " + maximum + " $";
+
+    document.getElementById("formStyle").value =
+        styleNames[selections.style];
+
+    document.getElementById("formLocation").value =
+        locationNames[selections.location];
+
+    document.getElementById("formSize").value =
+        sizeNames[selections.size];
+
+}
+
+
+/* =========================
+   BOUTONS D'OPTIONS
+========================= */
+
+function setupOptions(containerId, selectionKey) {
+
+
+    const container =
+        document.getElementById(containerId);
+
+
+    container
+    .querySelectorAll(".option")
+    .forEach(button => {
+
+
+        button.addEventListener("click", () => {
+
+
+            container
+            .querySelectorAll(".option")
+            .forEach(b =>
+                b.classList.remove("active")
+            );
+
+
+            button.classList.add("active");
+
+
+            selections[selectionKey] =
+                button.dataset.value;
+
+
+            calculatePrice();
+
+        });
+
+    });
+
+}
+
+
+/* =========================
+   INITIALISATION
+========================= */
+
+setupOptions("styles", "style");
+
+setupOptions("locations", "location");
+
+setupOptions("sizes", "size");
+
+setupOptions("colors", "color");
+
+setupOptions("details", "detail");
+
+setupOptions("projectType", "projectType");
+
+setupOptions("designStatus", "designStatus");
+
+
+calculatePrice();
+
+
+/* =========================
+   COMMENTAIRE
+========================= */
+
+document
+.getElementById("projectComment")
+.addEventListener("input", function() {
+
+    document
+    .getElementById("formProject")
+    .value = this.value;
+
+});
+
+
+</script>
+
+
+</body>
+</html>
