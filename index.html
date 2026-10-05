@@ -327,32 +327,57 @@ input:focus {
     max-width: 600px;
 }
 
-/* FORM */
+/* FORMULAIRE */
 
 .form {
-    max-width: 500px;
+    max-width: 550px;
     margin: auto;
     text-align: left;
 }
 
 .form label {
     display: block;
-    margin-top: 15px;
-    margin-bottom: 5px;
+    margin-top: 17px;
+    margin-bottom: 7px;
     font-weight: 700;
 }
 
-.form input {
+.form input,
+.form textarea {
     width: 100%;
     padding: 14px;
     border-radius: 9px;
     border: 1px solid #d1d5db;
     font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form textarea {
+    min-height: 130px;
 }
 
 .form .btn {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 22px;
+}
+
+.interest-box {
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 13px;
+    padding: 17px;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.interest-box strong {
+    display: block;
+    margin-bottom: 7px;
+}
+
+.interest-box span {
+    color: #d1d5db;
+    font-size: 14px;
 }
 
 .success {
@@ -501,27 +526,27 @@ Style de tattoo
 
 <div class="options" id="styles">
 
-<button class="option active" data-value="minimal">
+<button type="button" class="option active" data-value="minimal">
 Minimaliste / Fine line
 </button>
 
-<button class="option" data-value="realistic">
+<button type="button" class="option" data-value="realistic">
 Réaliste
 </button>
 
-<button class="option" data-value="blackwork">
+<button type="button" class="option" data-value="blackwork">
 Blackwork
 </button>
 
-<button class="option" data-value="traditional">
+<button type="button" class="option" data-value="traditional">
 Traditional
 </button>
 
-<button class="option" data-value="newschool">
+<button type="button" class="option" data-value="newschool">
 New school
 </button>
 
-<button class="option" data-value="other">
+<button type="button" class="option" data-value="other">
 Autre
 </button>
 
@@ -540,43 +565,43 @@ Emplacement
 
 <div class="options" id="locations">
 
-<button class="option active" data-value="arm">
+<button type="button" class="option active" data-value="arm">
 Bras / Avant-bras
 </button>
 
-<button class="option" data-value="wrist">
+<button type="button" class="option" data-value="wrist">
 Poignet
 </button>
 
-<button class="option" data-value="hand">
+<button type="button" class="option" data-value="hand">
 Main / Doigts
 </button>
 
-<button class="option" data-value="shoulder">
+<button type="button" class="option" data-value="shoulder">
 Épaule
 </button>
 
-<button class="option" data-value="back">
+<button type="button" class="option" data-value="back">
 Dos
 </button>
 
-<button class="option" data-value="chest">
+<button type="button" class="option" data-value="chest">
 Poitrine
 </button>
 
-<button class="option" data-value="thigh">
+<button type="button" class="option" data-value="thigh">
 Cuisse
 </button>
 
-<button class="option" data-value="calf">
+<button type="button" class="option" data-value="calf">
 Mollet
 </button>
 
-<button class="option" data-value="ankle">
+<button type="button" class="option" data-value="ankle">
 Cheville
 </button>
 
-<button class="option" data-value="other">
+<button type="button" class="option" data-value="other">
 Autre
 </button>
 
@@ -595,23 +620,23 @@ Taille approximative
 
 <div class="options" id="sizes">
 
-<button class="option active" data-value="small">
+<button type="button" class="option active" data-value="small">
 2–5 cm
 </button>
 
-<button class="option" data-value="medium">
+<button type="button" class="option" data-value="medium">
 5–10 cm
 </button>
 
-<button class="option" data-value="large">
+<button type="button" class="option" data-value="large">
 10–15 cm
 </button>
 
-<button class="option" data-value="xlarge">
+<button type="button" class="option" data-value="xlarge">
 15–20 cm
 </button>
 
-<button class="option" data-value="huge">
+<button type="button" class="option" data-value="huge">
 20 cm+
 </button>
 
@@ -630,11 +655,11 @@ Couleur
 
 <div class="options" id="colors">
 
-<button class="option active" data-value="black">
+<button type="button" class="option active" data-value="black">
 Noir
 </button>
 
-<button class="option" data-value="color">
+<button type="button" class="option" data-value="color">
 Couleur
 </button>
 
@@ -653,15 +678,15 @@ Niveau de détail
 
 <div class="options" id="details">
 
-<button class="option active" data-value="simple">
+<button type="button" class="option active" data-value="simple">
 Simple
 </button>
 
-<button class="option" data-value="medium">
+<button type="button" class="option" data-value="medium">
 Moyen
 </button>
 
-<button class="option" data-value="complex">
+<button type="button" class="option" data-value="complex">
 Très détaillé
 </button>
 
@@ -670,7 +695,7 @@ Très détaillé
 </div>
 
 
-<!-- COVER UP -->
+<!-- TYPE DE PROJET -->
 
 <div class="field">
 
@@ -680,15 +705,15 @@ Type de projet
 
 <div class="options" id="projectType">
 
-<button class="option active" data-value="new">
+<button type="button" class="option active" data-value="new">
 Nouveau tattoo
 </button>
 
-<button class="option" data-value="cover">
+<button type="button" class="option" data-value="cover">
 Cover-up
 </button>
 
-<button class="option" data-value="touchup">
+<button type="button" class="option" data-value="touchup">
 Retouche
 </button>
 
@@ -707,15 +732,15 @@ Où en êtes-vous avec votre design?
 
 <div class="options" id="designStatus">
 
-<button class="option active" data-value="ready">
+<button type="button" class="option active" data-value="ready">
 J'ai déjà mon design
 </button>
 
-<button class="option" data-value="idea">
+<button type="button" class="option" data-value="idea">
 J'ai seulement une idée
 </button>
 
-<button class="option" data-value="artist">
+<button type="button" class="option" data-value="artist">
 J'aimerais que l'artiste le crée
 </button>
 
@@ -780,7 +805,7 @@ Vous aimez l'estimation?
 <br>
 
 <a href="#soumission" class="btn">
-Demander une soumission
+Nous sommes intéressés
 </a>
 
 </div>
@@ -798,7 +823,6 @@ Demander une soumission
 
 <div class="features">
 
-
 <div class="feature">
 
 <div class="feature-icon">
@@ -810,7 +834,7 @@ Estimation instantanée
 </h3>
 
 <p class="muted">
-Votre client obtient rapidement une première idée du prix de son projet.
+Obtenez rapidement une première idée du prix de votre projet.
 </p>
 
 </div>
@@ -844,11 +868,10 @@ Demandes qualifiées
 </h3>
 
 <p class="muted">
-Recevez les détails du projet avec la demande de soumission.
+L'artiste reçoit les détails du projet avec votre demande.
 </p>
 
 </div>
-
 
 </div>
 
@@ -875,7 +898,6 @@ Une façon simple de commencer votre projet.
 
 
 <div class="steps">
-
 
 <div class="step">
 
@@ -927,7 +949,6 @@ L'artiste reçoit les informations nécessaires pour vous répondre.
 
 </div>
 
-
 </div>
 
 </div>
@@ -935,7 +956,7 @@ L'artiste reçoit les informations nécessaires pour vous répondre.
 </section>
 
 
-<!-- SOUMISSION -->
+<!-- FORMULAIRE "NOUS SOMMES INTÉRESSÉS" -->
 
 <section class="cta-section" id="soumission">
 
@@ -944,13 +965,28 @@ L'artiste reçoit les informations nécessaires pour vous répondre.
 <div class="cta">
 
 <h2>
-Prêt à parler de votre tattoo?
+Nous sommes intéressés par votre projet
 </h2>
 
 <p>
-Envoyez votre projet à l'artiste. Vous pourrez lui donner
-plus de détails afin d'obtenir une confirmation du prix final.
+Envoyez-nous les détails de votre tattoo et nous vous contacterons
+pour discuter de votre projet et confirmer le prix final.
 </p>
+
+
+<!-- RÉSUMÉ AUTOMATIQUE -->
+
+<div class="interest-box">
+
+<strong>
+Résumé de votre projet
+</strong>
+
+<span id="interestSummary">
+Minimaliste / Fine line · Bras / Avant-bras · 2–5 cm · Noir
+</span>
+
+</div>
 
 
 <form
@@ -961,7 +997,7 @@ method="POST"
 
 
 <label>
-Nom
+Nom *
 </label>
 
 <input
@@ -973,7 +1009,7 @@ required
 
 
 <label>
-Courriel
+Courriel *
 </label>
 
 <input
@@ -996,7 +1032,7 @@ placeholder="819-123-4567"
 
 
 <label>
-Description du projet
+Description du projet *
 </label>
 
 <textarea
@@ -1007,12 +1043,13 @@ required
 ></textarea>
 
 
+<!-- INFORMATIONS AUTOMATIQUES -->
+
 <input
 type="hidden"
 name="estimated_price"
 id="estimatedPrice"
 >
-
 
 <input
 type="hidden"
@@ -1020,18 +1057,40 @@ name="tattoo_style"
 id="formStyle"
 >
 
-
 <input
 type="hidden"
 name="tattoo_location"
 id="formLocation"
 >
 
-
 <input
 type="hidden"
 name="tattoo_size"
 id="formSize"
+>
+
+<input
+type="hidden"
+name="tattoo_color"
+id="formColor"
+>
+
+<input
+type="hidden"
+name="tattoo_detail"
+id="formDetail"
+>
+
+<input
+type="hidden"
+name="project_type"
+id="formProjectType"
+>
+
+<input
+type="hidden"
+name="design_status"
+id="formDesignStatus"
 >
 
 
@@ -1041,13 +1100,6 @@ type="submit"
 >
 Envoyer ma demande
 </button>
-
-
-<div class="success" id="success">
-
-Merci! Votre demande a été envoyée.
-
-</div>
 
 
 </form>
@@ -1070,7 +1122,6 @@ InstantQuote — Estimateur de tattoo
 
 <script>
 
-
 /* =========================
    VARIABLES
 ========================= */
@@ -1078,17 +1129,11 @@ InstantQuote — Estimateur de tattoo
 let selections = {
 
     style: "minimal",
-
     location: "arm",
-
     size: "small",
-
     color: "black",
-
     detail: "simple",
-
     projectType: "new",
-
     designStatus: "ready"
 
 };
@@ -1101,15 +1146,10 @@ let selections = {
 const styleNames = {
 
     minimal: "Minimaliste / Fine line",
-
     realistic: "Réaliste",
-
     blackwork: "Blackwork",
-
     traditional: "Traditional",
-
     newschool: "New school",
-
     other: "Autre"
 
 };
@@ -1118,23 +1158,14 @@ const styleNames = {
 const locationNames = {
 
     arm: "Bras / Avant-bras",
-
     wrist: "Poignet",
-
     hand: "Main / Doigts",
-
     shoulder: "Épaule",
-
     back: "Dos",
-
     chest: "Poitrine",
-
     thigh: "Cuisse",
-
     calf: "Mollet",
-
     ankle: "Cheville",
-
     other: "Autre"
 
 };
@@ -1143,13 +1174,9 @@ const locationNames = {
 const sizeNames = {
 
     small: "2–5 cm",
-
     medium: "5–10 cm",
-
     large: "10–15 cm",
-
     xlarge: "15–20 cm",
-
     huge: "20 cm+"
 
 };
@@ -1158,7 +1185,6 @@ const sizeNames = {
 const colorNames = {
 
     black: "Noir",
-
     color: "Couleur"
 
 };
@@ -1167,10 +1193,26 @@ const colorNames = {
 const detailNames = {
 
     simple: "Simple",
-
     medium: "Moyen",
-
     complex: "Très détaillé"
+
+};
+
+
+const projectTypeNames = {
+
+    new: "Nouveau tattoo",
+    cover: "Cover-up",
+    touchup: "Retouche"
+
+};
+
+
+const designStatusNames = {
+
+    ready: "Design déjà prêt",
+    idea: "Seulement une idée",
+    artist: "Design à créer par l'artiste"
 
 };
 
@@ -1181,128 +1223,98 @@ const detailNames = {
 
 function calculatePrice() {
 
-
     let minimum = 150;
-
     let maximum = 200;
 
 
     /* STYLE */
 
     if (selections.style === "realistic") {
-
         minimum += 70;
         maximum += 100;
-
     }
 
     if (selections.style === "blackwork") {
-
         minimum += 30;
         maximum += 50;
-
     }
 
     if (selections.style === "traditional") {
-
         minimum += 20;
         maximum += 40;
-
     }
 
     if (selections.style === "newschool") {
-
         minimum += 40;
         maximum += 70;
-
     }
 
 
     /* TAILLE */
 
     if (selections.size === "medium") {
-
         minimum += 50;
         maximum += 70;
-
     }
 
     if (selections.size === "large") {
-
         minimum += 120;
         maximum += 170;
-
     }
 
     if (selections.size === "xlarge") {
-
         minimum += 220;
         maximum += 320;
-
     }
 
     if (selections.size === "huge") {
-
         minimum += 400;
         maximum += 600;
-
     }
 
 
     /* COULEUR */
 
     if (selections.color === "color") {
-
         minimum += 30;
         maximum += 50;
-
     }
 
 
     /* DETAIL */
 
     if (selections.detail === "medium") {
-
         minimum += 50;
         maximum += 70;
-
     }
 
     if (selections.detail === "complex") {
-
         minimum += 120;
         maximum += 180;
-
     }
 
 
     /* COVER UP */
 
     if (selections.projectType === "cover") {
-
         minimum += 100;
         maximum += 180;
-
     }
 
 
     /* RETOUCHE */
 
     if (selections.projectType === "touchup") {
-
         minimum -= 50;
         maximum -= 30;
-
     }
 
 
     /* DESIGN PAR ARTISTE */
 
     if (selections.designStatus === "artist") {
-
         minimum += 50;
         maximum += 100;
-
     }
 
 
@@ -1320,14 +1332,15 @@ function calculatePrice() {
     }
 
 
-    /* PRIX */
+    /* AFFICHAGE PRIX */
 
     document.getElementById("price").textContent =
         minimum + " $ – " + maximum + " $";
 
 
-    document.getElementById("priceDetails").textContent =
+    /* DÉTAILS SOUS LE PRIX */
 
+    document.getElementById("priceDetails").textContent =
         styleNames[selections.style]
         + " · "
         + locationNames[selections.location]
@@ -1351,6 +1364,30 @@ function calculatePrice() {
     document.getElementById("formSize").value =
         sizeNames[selections.size];
 
+    document.getElementById("formColor").value =
+        colorNames[selections.color];
+
+    document.getElementById("formDetail").value =
+        detailNames[selections.detail];
+
+    document.getElementById("formProjectType").value =
+        projectTypeNames[selections.projectType];
+
+    document.getElementById("formDesignStatus").value =
+        designStatusNames[selections.designStatus];
+
+
+    /* RÉSUMÉ */
+
+    document.getElementById("interestSummary").textContent =
+        styleNames[selections.style]
+        + " · "
+        + locationNames[selections.location]
+        + " · "
+        + sizeNames[selections.size]
+        + " · "
+        + colorNames[selections.color];
+
 }
 
 
@@ -1360,18 +1397,14 @@ function calculatePrice() {
 
 function setupOptions(containerId, selectionKey) {
 
-
     const container =
         document.getElementById(containerId);
-
 
     container
     .querySelectorAll(".option")
     .forEach(button => {
 
-
         button.addEventListener("click", () => {
-
 
             container
             .querySelectorAll(".option")
@@ -1379,13 +1412,10 @@ function setupOptions(containerId, selectionKey) {
                 b.classList.remove("active")
             );
 
-
             button.classList.add("active");
-
 
             selections[selectionKey] =
                 button.dataset.value;
-
 
             calculatePrice();
 
@@ -1414,12 +1444,11 @@ setupOptions("projectType", "projectType");
 
 setupOptions("designStatus", "designStatus");
 
-
 calculatePrice();
 
 
 /* =========================
-   COMMENTAIRE
+   DESCRIPTION
 ========================= */
 
 document
@@ -1431,7 +1460,6 @@ document
     .value = this.value;
 
 });
-
 
 </script>
 
